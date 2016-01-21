@@ -11,13 +11,13 @@
       
         var elem = $(this),
             initialOffset = (function () {
-                return elem.offset().top
+                return elem.offset().top;
             })(),
 
             DEFAULTS = {
                 'container': elem.closest('section'),
                 padding: true,
-
+                offset: false,
             },
             settings = $.extend({}, DEFAULTS, options),
 
@@ -27,13 +27,20 @@
                     bottom: 0,
                 };
 
+                if( settings.offset ) {
+                    obj.top = obj.top + settings.offset;
+                    obj.bottom = obj.bottom + settings.offset;
+                }
+
                 if( settings.padding ) {
-                    obj.top += parseInt( settings.container.css('padding-top') );
-                    obj.bottom += parseInt( settings.container.css('padding-bottom') );
+                    obj.top = obj.top + parseInt( settings.container.css('padding-top') );
+                    obj.bottom = obj.bottom + parseInt( settings.container.css('padding-bottom') );
                 }
 
                 return obj;
             })();
+
+        console.log(offset.top);
 
         elem.css({
             'position': 'relative',
