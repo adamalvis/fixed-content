@@ -16,7 +16,7 @@
 
             DEFAULTS = {
                 'container': elem.closest('section'),
-                padding: true,
+                padding: false,
                 offset: false,
             },
             settings = $.extend({}, DEFAULTS, options),

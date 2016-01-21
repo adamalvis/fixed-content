@@ -1,7 +1,7 @@
 (function () {
     $('.fixed-content').each(function () {
         $(this).fixedContent({
-            offset: 100,
+            padding: true,
         });
     });
 })();
